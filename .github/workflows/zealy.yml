@@ -1,10 +1,13 @@
 name: zealy
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: zealy
+  cancel-in-progress: false
 jobs:
   check:
     runs-on: ubuntu-latest
